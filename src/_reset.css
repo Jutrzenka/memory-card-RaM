@@ -1,4 +1,9 @@
+@import "./variables.css";
+
 * {
     padding: 0;
     margin: 0;
+    border: none;
+    font-family: var(--font-family-standard);
+    color: var(--light-color);
 }

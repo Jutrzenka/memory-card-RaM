@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+:root {
+    --min-width: 300px;
+
+    --font-normalize-size: calc(20px + 10vw * 10vh);
+    --font-family-standard: 'Creepster', "Corbel", sans-serif;
+
+    --base-color: #3E3377;
+    --light-color: #F8FFF8;
+    --first-color: #C9DC5A;
+    --second-color: #4E8345;
+    --third-color: #B9D0EA;
+}
