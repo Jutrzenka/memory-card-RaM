@@ -1,0 +1,17 @@
+.Form {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Form_wrapper {
+    width: 60%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: calc((8vw + 20vh)/50);
+    padding: calc((8vw + 20vh)/50);
+}
