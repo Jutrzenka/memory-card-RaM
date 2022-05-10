@@ -1,0 +1,18 @@
+.FormButton {
+    box-sizing: border-box;
+    background-color: #C9DC5A;
+    font-family: 'Creepster', sans-serif;
+    border-radius: 26%/91%;
+    border: calc((7.5vw + 3vh)/45) #3E3377 solid;
+}
+
+.FormButton_p {
+    box-sizing: border-box;
+    letter-spacing: calc((7.5vw + 3vh)/20);
+    font-size: calc((7.5vw + 3vh)/1.5);
+    color: #F8FFF8;
+    text-shadow: 2px 2px #3E3377;;
+    padding: calc((7.5vw + 3vh)/8) calc((7.5vw + 3vh)/3);
+    border: calc((7.5vw + 3vh)/60) #F8FFF8 solid;
+    border-radius: 25%/90%;
+}
