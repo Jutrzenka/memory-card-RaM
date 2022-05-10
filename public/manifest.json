@@ -1,25 +1,15 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Memory cards",
+  "name": "Memory cards game - Rick and Morty",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "72x72 96x96 128x128 256x256"
     }
   ],
+  "description": "There is no god, gotta rip that band-aid off now you'll thank me later. Now play the memory cards.",
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "browser",
+  "theme_color": "#F8FFF8",
+  "background_color": "#3E3377"
 }
