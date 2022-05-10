@@ -19,6 +19,7 @@ export const ErrorView = () => {
     }
     return (
         <div className={"ErrorView"}>
+            <h1 className={"ErrorView_ups"}>Ups...</h1>
             {select}
         </div>
     )
