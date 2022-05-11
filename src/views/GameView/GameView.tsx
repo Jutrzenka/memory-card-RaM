@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import {Navigate, useParams} from "react-router-dom";
 
-import "./GameView.css"
+import "./_GameView.css"
+import {GameTable} from "../../components/GameTable/GameTable";
 
 const isCorrectAmount = (value:string | undefined) => {
     if (value !== undefined) {
         if (/\d/g.test(value)){
-            if (Number(value) >= 2 && Number(value) <= 10) {
+            if (Number(value) >= 6 && Number(value) <= 10) {
                 return true;
             }
         }
@@ -16,12 +17,14 @@ const isCorrectAmount = (value:string | undefined) => {
 
 export const GameView = () => {
     const {amount} = useParams();
+    const [turns, increaseTurn] = useState(0);
+
     // catch wrong amount
     if (!isCorrectAmount(amount)) return (<Navigate to={"/error/wrong-amount"}/>)
     // GameView
     return (
         <div className={"GameView"}>
-            <h1>GAME VIEW</h1>
+            <GameTable turns={turns} amountCard={Number(amount)} increaseTurn={increaseTurn}/>
         </div>
     )
 }
