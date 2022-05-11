@@ -9,7 +9,7 @@ import {FormButton} from "../../components/StartForm/FormButton/FormButton";
 import {Vortex} from "../../components/Vortex/Vortex";
 
 export const StartView = () => {
-    const [amount, setAmount] = useState(5);
+    const [amount, setAmount] = useState(8);
     return (
         <div className={"StartView"}>
             <Header title={"Rick and Morty"}/>

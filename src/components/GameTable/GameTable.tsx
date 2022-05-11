@@ -1,4 +1,4 @@
-import React, {ReactNode, useEffect, useState} from "react";
+import React, {ReactNode, useEffect, useRef, useState} from "react";
 import { Card } from "../Card/Card";
 
 import "./_GameTable.css"
@@ -7,41 +7,79 @@ import {FetchComponent} from "../FetchComponent/FetchComponent";
 import {shuffleArray} from "../../utils/shuffleArray";
 import {randomNumber} from "../../utils/randomNumber";
 import {useChangeTwo} from "../../utils/useChangeTwo";
+import {useToggle} from "../../utils/useToggle";
+import { useHandleChoice } from "../../utils/useHandleChoice";
+import {Navigate, useLocation} from "react-router-dom";
 
 interface Props {
     amountCard: number;
-    isStarted: boolean;
+    increaseTurn: any;
 }
 
-export const GameTable = ({amountCard, isStarted}:Props) => {
-    const [isSame, setKey] = useChangeTwo();
-    const [page] = useState(randomNumber(1, 40));
-    const [cardArray, setCardArray] = useState<ReactNode[]>([]);
+export const GameTable = ({amountCard, increaseTurn}:Props) => {
+    // Set array cards
+    const [page] = useState(randomNumber(1, 38));
+    const [cardArray, setCardArray] = useState<any[]>([]);
     const [data, loading, error] = useFetch(`https://rickandmortyapi.com/api/character?page=${page}`);
     useEffect(() => {
         let array = [];
         if (data !== null) {
-            for (let i=0; i < amountCard; i++) {
-                if (!isSame) {
-                    array.push(<Card key={`${i}A`} isSame={isSame} id={`${i}A`} setKey={setKey} pictures={data.results[i].image} title={"Rick and Morty"}/>);
-                    array.push(<Card key={`${i}B`} isSame={isSame}  id={`${i}B`} setKey={setKey} pictures={data.results[i].image} title={"Rick and Morty"}/>);
-                } else {
-                    array.push(<Card key={`${i}A`} isSame={isSame} id={`${i}A`} setKey={setKey} pictures={data.results[i].image} title={"Morty and Rick"}/>);
-                    array.push(<Card key={`${i}B`} isSame={isSame} id={`${i}B`} setKey={setKey} pictures={data.results[i].image} title={"Morty and Rick"}/>);
-                }
+            for (let i=1; i <= amountCard; i++) {
+                array.push({index:`${i}A`, pictures:data.results[i].image, matched:false});
+                array.push({index:`${i}B`, pictures:data.results[i].image, matched:false});
             }
-            if (!isSame) {
-                const shuffleCardArray = shuffleArray(array);
-                setCardArray(shuffleCardArray);
-            }
+            const shuffleCardArray = shuffleArray(array);
+            setCardArray(shuffleCardArray);
         }
-    },[isSame])
+    },[data])
+
+    // Compare two cards
+    const [cardOne, cardTwo, setHandle, pairReset, timeReset]:any = useHandleChoice();
+    const [pairAmount, setPairAmount] = useState(0);
+
+    useEffect(() => {
+        if (cardOne && cardTwo) {
+            timeReset();
+            // When pair
+            if (cardOne.index[0] === cardTwo.index[0]) {
+                setCardArray((prevCards) => {
+                    return prevCards.map(card => {
+                        if (cardOne.index[0] === card.index[0]) {
+                            setPairAmount(prev => prev + 1);
+                            return {...card, matched:true}
+                        } else {
+                            return card;
+                        }
+                    })
+                })
+            }
+            // Reset
+            const timer = setTimeout(() => {
+                pairReset();
+                timeReset();
+                increaseTurn((prevTurns:number) => prevTurns + 1);
+            }, 500);
+            return () => clearTimeout(timer);
+        }
+    },[cardOne, cardTwo])
+
+
+    // Navigate to WinView
+    let history = useLocation();
+    useEffect(() => {
+        if (amountCard * 4 === pairAmount) browserHistory.push("/path");
+    },[pairAmount])
 
     return (
         <FetchComponent data={data} loading={loading} error={error}>
             <div className={"GameTable"}>
                 <div className={"GameTable_Container"}>
-                    {cardArray}
+                    {cardArray.map(card => <Card
+                        key={card.index}
+                        flipped={card.matched || card === cardOne || card === cardTwo}
+                        handleChoice={() => setHandle(card)}
+                        pictures={data.results[card.index[0]].image}
+                    />)}
                 </div>
             </div>
         </FetchComponent>

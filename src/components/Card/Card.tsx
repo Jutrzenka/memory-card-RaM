@@ -1,24 +1,20 @@
-import React, {useState} from "react";
+import React from "react";
 import "./_Card.css"
 import {Vortex} from "../Vortex/Vortex";
 import {useToggle} from "../../utils/useToggle";
+import {log} from "util";
 
 interface Props {
-    title: string;
     pictures: string;
-    setKey: any;
-    id: string;
-    isSame: boolean;
+    handleChoice: any;
+    flipped: boolean;
 }
 
-export const Card = ({title, pictures, isSame, setKey, id}:Props) => {
-    const [isFocus, setIsFocus] = useState(false);
-    const [isClick, setIsClick] = useToggle();
+export const Card = ({pictures, handleChoice, flipped}:Props) => {
 
     const cardBack = (
         <>
-            <h3 className={"Card_Title"}>{title}</h3>
-            <div className={"Card_Image"}>
+            <div className={"Card_Back"}>
                 <div className={"Card_Vortex"}>
                     <Vortex/>
                 </div>
@@ -28,24 +24,25 @@ export const Card = ({title, pictures, isSame, setKey, id}:Props) => {
 
     const cardFront = (
         <>
-            <h3 className={"Card_Title"}>{title}</h3>
-            <div className={"Card_Image"}>
-                <img className={"Card_Pictures"} src={pictures} alt={"Rick and Morty Card"}/>
+            <div className={"Card_Front"}>
+                <div className={"Card_Images"}>
+                    <div className={"Card_Pictures"}>
+                        <img className={"Pictures"} src={pictures} alt={"Rick and Morty Card"}/>
+                    </div>
+                </div>
             </div>
         </>
     )
 
     return (
-        <div className={`Card${isFocus ? " Card_focus" : ""}`}
-             id={id}
-             onMouseEnter={() => setIsFocus(true)}
-             onMouseLeave={() => setIsFocus(false)}
-             onClick={(e) => {
-                 setKey(e.currentTarget.id)
-             }
-        }
-        >
-            {isSame ? cardFront : cardBack}
+        <div className={"CardWrapper"}>
+            <div className={"Card"}
+                 onClick={handleChoice}
+            >
+                <div className={flipped ? "flipped" : ""}>
+                    {flipped ? cardFront : cardBack}
+                </div>
+            </div>
         </div>
     )
 }
