@@ -63,12 +63,7 @@ export const GameTable = ({amountCard, increaseTurn}:Props) => {
         }
     },[cardOne, cardTwo])
 
-
-    // Navigate to WinView
-    let history = useLocation();
-    useEffect(() => {
-        if (amountCard * 4 === pairAmount) browserHistory.push("/path");
-    },[pairAmount])
+    if (amountCard * 4 === pairAmount) {return (<Navigate to={"/error/sasa"}/>)}
 
     return (
         <FetchComponent data={data} loading={loading} error={error}>
