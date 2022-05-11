@@ -1,15 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
-@import url('components/variables.css');
+@import "variables.css";
 
 .App {
-    width: 100%;
-    max-width: 100vw;
     min-width: var(--min-width);
     min-height: 100vh;
-    background-color: #3E3377;
+    background-color: var(--base-color);
 }
 
-body {
-    font-family: 'Creepster', sans-serif;
-    min-width: var(--min-width);
+.App_sites {
+    display: block;
+    min-height: 100%
 }

@@ -1,8 +1,7 @@
 .Header {
     width: 100%;
     min-width: var(--min-width);
-    min-height: calc(8vw + 20vh);
-    height: 20%;
+    min-height: 25vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,10 +9,10 @@
 
 .Header_title {
     width: 95%;
-    letter-spacing: calc((7.5vw + 3vh)/20);
     min-width: var(--min-width);
+    letter-spacing: var(--standard-letter-spacing);
     text-align: center;
-    color: #F8FFF8;
-    font-size: calc((7.5vw + 3vh)/1.5);
-    text-shadow: 3px 3px #B9D0EA;
+    color: var(--light-color);
+    font-size: calc(var(--font-normalize-size)/2.5);
+    text-shadow: 2px 2px var(--third-color);
 }

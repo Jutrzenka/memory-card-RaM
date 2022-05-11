@@ -1,18 +1,17 @@
 .FormButton {
-    box-sizing: border-box;
-    background-color: #C9DC5A;
-    font-family: 'Creepster', sans-serif;
-    border-radius: 26%/91%;
-    border: calc((7.5vw + 3vh)/45) #3E3377 solid;
+    padding-bottom: calc(var(--standard-height)*7);
 }
 
-.FormButton_p {
+.FormButton_Link {
+    color: var(--light-color);
+    background-color: var(--third-color);
     box-sizing: border-box;
-    letter-spacing: calc((7.5vw + 3vh)/20);
-    font-size: calc((7.5vw + 3vh)/1.5);
-    color: #F8FFF8;
-    text-shadow: 2px 2px #3E3377;;
-    padding: calc((7.5vw + 3vh)/8) calc((7.5vw + 3vh)/3);
-    border: calc((7.5vw + 3vh)/60) #F8FFF8 solid;
+    display: block;
+    letter-spacing: var(--standard-letter-spacing);
+    text-decoration: none;
+    font-size: calc(var(--font-normalize-size)/3);
+    text-shadow: 2px 2px var(--base-color);
+    padding: calc(var(--standard-height)/1.2) calc(var(--standard-height)/0.5);
+    border: calc(var(--standard-height)/10) var(--light-color) solid;
     border-radius: 25%/90%;
 }

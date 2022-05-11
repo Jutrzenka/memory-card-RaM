@@ -1,36 +1,54 @@
 .AmountInput {
     width: 100%;
-    height: 15vh;
+    min-width: var(--min-width);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .AmountInput_button-left {
     aspect-ratio: 1;
-    height: calc((15vh + 15vw)/4);
+    height: calc(var(--standard-height)*8);
     border: none;
-    background-color: #C9DC5A;
+    background-color: var(--first-color);
     clip-path: polygon(0 33%, 33% 33%, 66% 33%, 100% 33%, 100% 66%, 66% 66%, 33% 66%, 0 66%);
 }
 
 .AmountInput_button-right {
     aspect-ratio: 1;
-    height: calc((15vh + 15vw)/4);
+    height: calc(var(--standard-height)*8);
     border: none;
-    background-color: #C9DC5A;
+    background-color: var(--first-color);
     clip-path: polygon(0 33%, 33% 33%, 34% 0, 66% 0, 66% 33%, 100% 33%, 100% 66%, 66% 66%, 66% 100%, 33% 100%, 33% 66%, 0 66%);
+}
+
+@media (max-aspect-ratio: 10/12) {
+    .AmountInput_button-left {
+        height: calc(var(--standard-height)*4);
+    }
+    .AmountInput_button-right {
+        height: calc(var(--standard-height)*4);
+    }
+    @media (max-width: 330px) {
+        .AmountInput_button-left {
+            margin-left: 30px;
+            height: calc(var(--standard-height)*3.5);
+        }
+        .AmountInput_button-right {
+            margin-right: 30px;
+            height: calc(var(--standard-height)*3.5);
+        }
+    }
 }
 
 .AmountInput_amount {
     width: 50%;
-    height: 100%;
-    letter-spacing: calc((7.5vw + 3vh)/50);
-    font-size: calc((7.5vw + 3vh)/3);
-    color: #F8FFF8;
-    text-shadow: 1px 1px #B9D0EA;
+    height: calc(var(--standard-height));
+    letter-spacing: var(--standard-letter-spacing);
+    font-size: calc(var(--font-normalize-size)/4);
+    color: var(--light-color);
+    text-shadow: 2px 2px var(--third-color);
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
