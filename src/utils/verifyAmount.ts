@@ -12,7 +12,7 @@ export const verifyAmount = (prev:number, action:Actions) => {
                 return prev
             }
         case Actions.SUBTRACT:
-            if (prev > 2) {
+            if (prev > 6) {
                 return prev - 1
             } else {
                 return prev

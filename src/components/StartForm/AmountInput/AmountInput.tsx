@@ -15,7 +15,7 @@ export const AmountInput = ({amount, setAmount}:Props) => {
                     onClick={() => setAmount((prev:number) => verifyAmount(prev, Actions.SUBTRACT))}
             />
             <h2 className={"AmountInput_amount"}>
-                {amount === 5 ? "Standard" : `${amount} pair of cards`}
+                {amount === 8 ? "Standard" : `${amount} pair of cards`}
             </h2>
             <button className={"AmountInput_button-right"}
                     onClick={() => setAmount((prev:number) => verifyAmount(prev, Actions.ADD))}
