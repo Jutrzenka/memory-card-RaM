@@ -1,15 +1,16 @@
 import React from "react";
 
 import "./_FormButton.css";
+import {Link} from "react-router-dom";
 
 interface Props {
-    toggleStarted: () => void;
+    urlStarted: string;
 }
 
-export const FormButton = ({toggleStarted}:Props) => {
+export const FormButton = ({urlStarted}:Props) => {
     return (
-        <button className={"FormButton"} onClick={toggleStarted}>
-            <p className={"FormButton_p"}>start</p>
+        <button className={"FormButton"}>
+            <Link to={urlStarted} className={"FormButton_Link"}>start</Link>
         </button>
     )
 }
