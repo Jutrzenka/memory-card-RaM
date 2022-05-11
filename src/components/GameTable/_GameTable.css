@@ -40,15 +40,6 @@
 
 @media (max-width: 320px){
     .GameTable_Container {
-        display: flex;
-        flex-direction: column;
-    }
-    .GameTable {
-        width: 100%;
-        height: fit-content;
-        min-width: var(--min-width);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: none;
     }
 }
