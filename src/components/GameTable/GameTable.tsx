@@ -51,17 +51,23 @@ export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
                         }
                     })
                 })
-            }
-            // Reset
-            const timer = setTimeout(() => {
+                // Reset
                 pairReset();
                 timeReset();
                 increaseTurn((prevTurns:number) => prevTurns + 1);
-            }, 500);
-            return () => clearTimeout(timer);
+            } else {
+                // Reset when card is not a pair
+                const timer = setTimeout(() => {
+                    pairReset();
+                    timeReset();
+                    increaseTurn((prevTurns:number) => prevTurns + 1);
+                }, 500);
+                return () => clearTimeout(timer);
+            }
         }
     },[cardOne, cardTwo])
 
+    // Redirect when player is winner
     if (amountCard * 4 === pairAmount) {return (<Navigate to={`/win/${turns}`}/>)}
 
     return (

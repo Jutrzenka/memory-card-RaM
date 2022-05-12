@@ -9,18 +9,18 @@ export const WinView = () => {
     return (
         <div className={"WinView"}>
             <div className={"WinView_div"}>
-                <div className={"ThisErrorIsNotExist Error_wrapper"}>
-                    <h2 className={"Error_title win"}>You win with {turns} turns</h2>
-                    <p className={"Error_description textError win"}>
+                <div className={"WinView_wrapper"}>
+                    <h2 className={"WinView_title win"}>You win with {turns} turns</h2>
+                    <p className={"WinView_description win"}>
                         Nobody exists on purpose.
                     </p>
-                    <p className={"Error_description textError win"}>
+                    <p className={"WinView_description win"}>
                         Nobody belongs anywhere.
                     </p>
-                    <p className={"Error_description textError win"}>
+                    <p className={"WinView_description win"}>
                         We’re all going to die.
                     </p>
-                    <p className={"Error_description textError win"}>
+                    <p className={"WinView_description win"}>
                         Come watch TV.
                     </p>
                     <button className={"ReturnHome"}>

@@ -16,10 +16,6 @@
     font-size: calc(var(--font-normalize-size)/2);
 }
 
-.Error_wrapper {
-
-}
-
 .WrongPath > .Error_title {
     font-size: calc(var(--font-normalize-size)/3.6);
 }
