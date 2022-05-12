@@ -17,7 +17,7 @@ const isCorrectAmount = (value:string | undefined) => {
 
 export const GameView = () => {
     const {amount} = useParams();
-    const [turns, increaseTurn] = useState(0);
+    const [turns, increaseTurn] = useState<number>(0);
 
     // catch wrong amount
     if (!isCorrectAmount(amount)) return (<Navigate to={"/error/wrong-amount"}/>)

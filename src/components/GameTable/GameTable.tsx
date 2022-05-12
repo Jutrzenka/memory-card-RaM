@@ -1,31 +1,31 @@
-import React, {useEffect, useState} from "react";
-import { Card } from "../Card/Card";
+import React, {Dispatch, useEffect, useState} from "react";
+import { Card, CardInterface } from "../Card/CardInterface";
 
 import "./_GameTable.css"
 import {useFetch} from "../../utils/useFetch";
 import {FetchComponent} from "../FetchComponent/FetchComponent";
 import {shuffleArray} from "../../utils/shuffleArray";
 import {randomNumber} from "../../utils/randomNumber";
-import { useHandleChoice } from "../../utils/useHandleChoice";
+import {useHandleChoice } from "../../utils/useHandleChoice";
 import {Navigate} from "react-router-dom";
 
 interface Props {
     amountCard: number;
-    increaseTurn: any;
+    increaseTurn: (value: (prevTurns:number) => number) => void;
     turns: number;
 }
 
 export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
     // Set array cards
     const [page] = useState(randomNumber(1, 38));
-    const [cardArray, setCardArray] = useState<any[]>([]);
+    const [cardArray, setCardArray] = useState<CardInterface[]>([]);
     const [data, loading, error] = useFetch(`https://rickandmortyapi.com/api/character?page=${page}`);
     useEffect(() => {
         let array = [];
         if (data !== null) {
             for (let i=1; i <= amountCard; i++) {
-                array.push({index:`${i}A`, pictures:data.results[i].image, matched:false});
-                array.push({index:`${i}B`, pictures:data.results[i].image, matched:false});
+                array.push({index:`${i}A`, pictures:data.results[i].image, matched:false} as CardInterface);
+                array.push({index:`${i}B`, pictures:data.results[i].image, matched:false}  as CardInterface);
             }
             const shuffleCardArray = shuffleArray(array);
             setCardArray(shuffleCardArray);
@@ -33,7 +33,9 @@ export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
     },[data])
 
     // Compare two cards
-    const [cardOne, cardTwo, setHandle, pairReset, timeReset]:any = useHandleChoice();
+    const [cardOne, cardTwo, setHandle, pairReset, timeReset]:
+        [CardInterface | null, CardInterface | null, Dispatch<CardInterface | null>, Dispatch<void>, Dispatch<void>]  = useHandleChoice();
+
     const [pairAmount, setPairAmount] = useState(0);
 
     useEffect(() => {
@@ -54,7 +56,7 @@ export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
                 // Reset
                 pairReset();
                 timeReset();
-                increaseTurn((prevTurns:number) => prevTurns + 1);
+                increaseTurn(prevTurns => prevTurns + 1);
             } else {
                 // Reset when card is not a pair
                 const timer = setTimeout(() => {

@@ -5,7 +5,7 @@ import "./AmountInput.css";
 
 interface Props {
     amount: number;
-    setAmount: any;
+    setAmount: (value: (prevTurns:number) => number) => void;
 }
 
 export const AmountInput = ({amount, setAmount}:Props) => {

@@ -1,13 +1,17 @@
 import React from "react";
 import "./_Card.css"
 import {Vortex} from "../Vortex/Vortex";
-import {useToggle} from "../../utils/useToggle";
-import {log} from "util";
 
 interface Props {
     pictures: string;
-    handleChoice: any;
+    handleChoice: () => void;
     flipped: boolean;
+}
+
+export interface CardInterface {
+    index: string,
+    pictures: string,
+    matched: boolean,
 }
 
 export const Card = ({pictures, handleChoice, flipped}:Props) => {
