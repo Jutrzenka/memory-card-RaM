@@ -1,0 +1,19 @@
+.GameView_ErrorMessage {
+    display: none;
+}
+
+@media (max-width: 330px){
+    .GameView {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .GameView_ErrorMessage {
+        display: block;
+        height: fit-content;
+        font-size: 25px;
+        text-align: center;
+    }
+}

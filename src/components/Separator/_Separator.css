@@ -1,7 +1,7 @@
 .Separator {
     box-sizing: border-box;
     width: 100%;
-    height: calc(5px + (0.5vh));
-    background-color: #C9DC5A;
-    border: #4E8345 calc(0.1vh) solid;
+    min-height: calc(var(--standard-height)/2);
+    background-color: var(--first-color);
+    border: var(--second-color) calc(var(--standard-height)/16) solid;
 }

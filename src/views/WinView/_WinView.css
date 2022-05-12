@@ -1,0 +1,26 @@
+.WinView {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.WinView_div {
+    width: 80%;
+}
+
+.win {
+    text-align: center;
+}
+
+.WinView_title {
+    font-size: calc(var(--font-normalize-size)/3);
+}
+
+.WinView_description {
+    font-size: calc(var(--font-normalize-size)/6);
+    color: var(--first-color);
+    text-shadow: 1px 1px var(--second-color);
+    margin-top: 1vh;
+}

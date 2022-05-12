@@ -4,7 +4,7 @@ interface Props {
     data:any;
     loading:boolean;
     error:boolean;
-    children: ReactElement<any, any>;
+    children: ReactElement;
 }
 
 export const FetchComponent = ({data, loading, error, children}:Props) => {

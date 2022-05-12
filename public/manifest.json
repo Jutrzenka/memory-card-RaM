@@ -9,7 +9,7 @@
   ],
   "description": "There is no god, gotta rip that band-aid off now you'll thank me later. Now play the memory cards.",
   "start_url": ".",
-  "display": "browser",
+  "display": "minimal-ui",
   "theme_color": "#F8FFF8",
   "background_color": "#3E3377"
 }

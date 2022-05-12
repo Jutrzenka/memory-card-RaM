@@ -6,13 +6,13 @@ export enum Actions {
 export const verifyAmount = (prev:number, action:Actions) => {
     switch (action) {
         case Actions.ADD:
-            if (prev < 8) {
+            if (prev < 10) {
                 return prev + 1
             } else {
                 return prev
             }
         case Actions.SUBTRACT:
-            if (prev > 2) {
+            if (prev > 6) {
                 return prev - 1
             } else {
                 return prev

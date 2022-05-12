@@ -1,4 +1,23 @@
+@import "./variables.css";
+
 * {
     padding: 0;
     margin: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: var(--font-family-standard);
+    font-size: var(--font-normalize-size);
+    font-weight: 400;
+    color: var(--light-color);
+    letter-spacing: var(--standard-letter-spacing);
+    text-shadow: 2px 2px var(--third-color);
+}
+
+button {
+    padding: 0;
+    margin: 0;
+    background-color: unset;
+    display: block;
+    border: none;
+    letter-spacing: var(--standard-letter-spacing);
 }
