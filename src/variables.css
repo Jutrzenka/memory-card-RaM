@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 
 :root {
-    --min-width: 300px;
 
     --font-normalize-size: calc(20px + 10vw + 10vh);
     --font-family-standard: 'Creepster', "Corbel", sans-serif;

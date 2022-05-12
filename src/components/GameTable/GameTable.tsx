@@ -1,5 +1,5 @@
-import React, {Dispatch, useEffect, useState} from "react";
-import { Card, CardInterface } from "../Card/CardInterface";
+import React, {useEffect, useState} from "react";
+import { Card, CardInterface } from "../Card/Card";
 
 import "./_GameTable.css"
 import {useFetch} from "../../utils/useFetch";
@@ -18,7 +18,7 @@ interface Props {
 
 export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
     // Set array cards
-    const [page] = useState(randomNumber(1, 38));
+    const [page] = useState<number>(randomNumber(1, 38));
     const [cardArray, setCardArray] = useState<CardInterface[]>([]);
     const [data, loading, error] = useFetch(`https://rickandmortyapi.com/api/character?page=${page}`);
     useEffect(() => {
@@ -34,10 +34,9 @@ export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
     },[data])
 
     // Compare two cards
-    const [cardOne, cardTwo, setHandle, pairReset, timeReset]:
-        [CardInterface | null, CardInterface | null, Dispatch<CardInterface | null>, Dispatch<void>, Dispatch<void>]  = useHandleChoice();
+    const [cardOne, cardTwo, setHandle, pairReset, timeReset] = useHandleChoice();
 
-    const [pairAmount, setPairAmount] = useState(0);
+    const [pairAmount, setPairAmount] = useState<number>(0);
 
     useEffect(() => {
         if (cardOne && cardTwo) {

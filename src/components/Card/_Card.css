@@ -1,4 +1,4 @@
-.CardWrapper {
+.Card {
     width: fit-content;
     aspect-ratio: 1;
     display: flex;
@@ -6,16 +6,16 @@
     justify-self: center;
 }
 
-.Card {
+.Card_Background {
     aspect-ratio: 1;
     max-height: 90%;
-    background-color: #B9D0EA;
+    background-color: var(--third-color);
     border-radius: 25px;
     border: 2px solid;
     justify-self: stretch;
 }
 
-.Card:hover {
+.Card_Background:hover {
     transform: rotate(5deg);
 }
 

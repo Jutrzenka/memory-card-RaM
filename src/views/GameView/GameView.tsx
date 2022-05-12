@@ -24,6 +24,7 @@ export const GameView = () => {
     // GameView
     return (
         <div className={"GameView"}>
+            <h1 className={"GameView_ErrorMessage"}>Sorry, your device is too narrow</h1>
             <GameTable turns={turns} amountCard={Number(amount)} increaseTurn={increaseTurn}/>
         </div>
     )

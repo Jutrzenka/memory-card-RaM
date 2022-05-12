@@ -6,7 +6,6 @@
 
 .ErrorView {
     box-sizing: border-box;
-    min-width: var(--min-width);
     width: 100%;
     height: 100%;
     padding: 2%;

@@ -1,5 +1,5 @@
 import {Dispatch, useEffect, useState} from "react";
-import { CardInterface } from "../components/Card/CardInterface";
+import { CardInterface } from "../components/Card/Card";
 import {useToggle} from "./useToggle";
 
 export const useHandleChoice = ():[CardInterface | null, CardInterface | null, Dispatch<CardInterface | null>, Dispatch<void>, Dispatch<void>] => {

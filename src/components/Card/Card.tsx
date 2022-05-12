@@ -40,14 +40,14 @@ export const Card = ({pictures, handleChoice, flipped}:Props) => {
     )
 
     return (
-        <div className={"CardWrapper"}>
-            <div className={"Card"}
-                 onClick={handleChoice}
-            >
-                <div className={flipped ? "flipped" : ""}>
-                    {flipped ? cardFront : cardBack}
+            <div className={"Card"}>
+                <div className={"Card_Background"}
+                     onClick={handleChoice}
+                >
+                    <div className={flipped ? "flipped" : ""}>
+                        {flipped ? cardFront : cardBack}
+                    </div>
                 </div>
             </div>
-        </div>
     )
 }
