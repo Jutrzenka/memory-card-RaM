@@ -1,6 +1,6 @@
 import React from "react";
-import "./_Card.css"
 import {Vortex} from "../Vortex/Vortex";
+import "./_Card.css"
 
 interface Props {
     pictures: string;

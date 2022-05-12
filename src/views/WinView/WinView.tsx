@@ -1,8 +1,7 @@
 import React from "react";
-
-import "./_WinView.css";
 import {Link, useParams} from "react-router-dom";
 import {Vortex} from "../../components/Vortex/Vortex";
+import "./_WinView.css";
 
 export const WinView = () => {
     const {turns} = useParams();

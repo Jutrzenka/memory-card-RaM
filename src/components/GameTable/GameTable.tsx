@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from "react";
 import { Card, CardInterface } from "../Card/Card";
-
-import "./_GameTable.css"
 import {useFetch} from "../../utils/useFetch";
 import {FetchComponent} from "../FetchComponent/FetchComponent";
 import {shuffleArray} from "../../utils/shuffleArray";
@@ -9,6 +7,8 @@ import {randomNumber} from "../../utils/randomNumber";
 import {useHandleChoice } from "../../utils/useHandleChoice";
 import {Navigate} from "react-router-dom";
 import { v4 as uuid } from 'uuid';
+
+import "./_GameTable.css"
 
 interface Props {
     amountCard: number;
@@ -70,7 +70,7 @@ export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
     },[cardOne, cardTwo])
 
     // Redirect when player is winner
-    if (amountCard * 4 === pairAmount) {return (<Navigate to={`/win/${turns}`}/>)}
+    if (amountCard * 4 === pairAmount) return (<Navigate to={`/win/${turns}`}/>)
 
     return (
         <FetchComponent data={data} loading={loading} error={error}>

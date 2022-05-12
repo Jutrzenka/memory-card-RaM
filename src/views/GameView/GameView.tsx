@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {Navigate, useParams} from "react-router-dom";
-
-import "./_GameView.css"
 import {GameTable} from "../../components/GameTable/GameTable";
+import "./_GameView.css"
 
 const isCorrectAmount = (value:string | undefined) => {
     if (value !== undefined) {
