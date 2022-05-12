@@ -8,6 +8,7 @@ import {shuffleArray} from "../../utils/shuffleArray";
 import {randomNumber} from "../../utils/randomNumber";
 import {useHandleChoice } from "../../utils/useHandleChoice";
 import {Navigate} from "react-router-dom";
+import { v4 as uuid } from 'uuid';
 
 interface Props {
     amountCard: number;
@@ -24,8 +25,8 @@ export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
         let array = [];
         if (data !== null) {
             for (let i=1; i <= amountCard; i++) {
-                array.push({index:`${i}A`, pictures:data.results[i].image, matched:false} as CardInterface);
-                array.push({index:`${i}B`, pictures:data.results[i].image, matched:false}  as CardInterface);
+                array.push({index: i, key: uuid(), pictures:data.results[i].image, matched:false} as CardInterface);
+                array.push({index: i, key: uuid(), pictures:data.results[i].image, matched:false}  as CardInterface);
             }
             const shuffleCardArray = shuffleArray(array);
             setCardArray(shuffleCardArray);
@@ -42,10 +43,10 @@ export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
         if (cardOne && cardTwo) {
             timeReset();
             // When pair
-            if (cardOne.index[0] === cardTwo.index[0]) {
+            if (cardOne.index === cardTwo.index) {
                 setCardArray((prevCards) => {
                     return prevCards.map(card => {
-                        if (cardOne.index[0] === card.index[0]) {
+                        if (cardOne.index === card.index) {
                             setPairAmount(prev => prev + 1);
                             return {...card, matched:true}
                         } else {
@@ -77,10 +78,10 @@ export const GameTable = ({amountCard, increaseTurn, turns}:Props) => {
             <div className={"GameTable"}>
                 <div className={"GameTable_Container"}>
                     {cardArray.map(card => <Card
-                        key={card.index}
+                        key={card.key}
                         flipped={card.matched || card === cardOne || card === cardTwo}
                         handleChoice={() => setHandle(card)}
-                        pictures={data.results[card.index[0]].image}
+                        pictures={data.results[card.index].image}
                     />)}
                 </div>
             </div>

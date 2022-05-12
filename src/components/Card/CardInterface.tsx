@@ -9,7 +9,8 @@ interface Props {
 }
 
 export interface CardInterface {
-    index: string,
+    index: number,
+    key: string,
     pictures: string,
     matched: boolean,
 }
