@@ -1,11 +1,12 @@
-import {useEffect, useState} from "react";
+import {Dispatch, useEffect, useState} from "react";
+import { CardInterface } from "../components/Card/Card";
 import {useToggle} from "./useToggle";
 
-export const useHandleChoice = () => {
-    const [card, handleCard] = useState<any>(null);
+export const useHandleChoice = ():[CardInterface | null, CardInterface | null, Dispatch<CardInterface | null>, Dispatch<void>, Dispatch<void>] => {
+    const [card, handleCard] = useState<CardInterface | null>(null);
     const [reset, toggleReset] = useToggle();
-    const [choiceOne, setChoiceOne] = useState(null);
-    const [choiceTwo, setChoiceTwo] = useState(null);
+    const [choiceOne, setChoiceOne] = useState<CardInterface | null>(null);
+    const [choiceTwo, setChoiceTwo] = useState<CardInterface | null>(null);
     const [timeReset, toggleTimeReset] = useToggle(true);
 
     useEffect(() => {

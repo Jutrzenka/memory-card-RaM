@@ -1,6 +1,5 @@
 .AmountInput {
     width: 100%;
-    min-width: var(--min-width);
     display: flex;
     justify-content: space-between;
     align-items: center;

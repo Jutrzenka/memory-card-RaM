@@ -1,10 +1,10 @@
 import React from 'react';
-import {Navigate, Route, Routes} from 'react-router-dom';
-import "./_App.css";
+import {Navigate, Route, Routes } from 'react-router-dom';
 import {StartView} from "./views/StartView/StartView";
 import {GameView} from "./views/GameView/GameView";
 import {ErrorView} from "./views/errors/ErrorView/ErrorView";
 import {WinView} from "./views/WinView/WinView";
+import "./_App.css";
 
 export const App = () => {
     return (

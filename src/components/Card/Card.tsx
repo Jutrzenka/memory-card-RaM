@@ -1,13 +1,18 @@
 import React from "react";
-import "./_Card.css"
 import {Vortex} from "../Vortex/Vortex";
-import {useToggle} from "../../utils/useToggle";
-import {log} from "util";
+import "./_Card.css"
 
 interface Props {
     pictures: string;
-    handleChoice: any;
+    handleChoice: () => void;
     flipped: boolean;
+}
+
+export interface CardInterface {
+    index: number,
+    key: string,
+    pictures: string,
+    matched: boolean,
 }
 
 export const Card = ({pictures, handleChoice, flipped}:Props) => {
@@ -35,14 +40,14 @@ export const Card = ({pictures, handleChoice, flipped}:Props) => {
     )
 
     return (
-        <div className={"CardWrapper"}>
-            <div className={"Card"}
-                 onClick={handleChoice}
-            >
-                <div className={flipped ? "flipped" : ""}>
-                    {flipped ? cardFront : cardBack}
+            <div className={"Card"}>
+                <div className={"Card_Background"}
+                     onClick={handleChoice}
+                >
+                    <div className={flipped ? "flipped" : ""}>
+                        {flipped ? cardFront : cardBack}
+                    </div>
                 </div>
             </div>
-        </div>
     )
 }
